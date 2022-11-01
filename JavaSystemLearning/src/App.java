@@ -7,18 +7,19 @@ import BasicLearning.*;
  */
 public class App {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
 
         // JavaBasicTest();
         // new JavaMath();//since JavaMath is a class, we need to create an instance of
         // it to use it.
-        UnityTest();
-
-        long endTime = System.currentTimeMillis();
-        System.out.println("Total Time: " + (endTime - startTime) + "ms");
+        // UnityTest();
+        System.out.println("Total Time: " + (System.currentTimeMillis() - startTime) + "ms");
     }
 
+    /**
+     * Unity case to discover Object and Class structure
+     */
     static void UnityTest() {
         MonoBehaviour testObj = new MonoBehaviour();
         testObj.UnityUpdate();
@@ -33,6 +34,6 @@ public class App {
         // Basic.TypeCast.JavaTypeCast();
         // Basic.Operators.JavaOperators();
         // Basic.JavaString javaString = new Basic.JavaString();
-
     }
+
 }

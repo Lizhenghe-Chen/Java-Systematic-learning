@@ -1,5 +1,7 @@
 package BasicLearning;
 
+import java.util.Arrays;
+
 /**
  * This java file includes some basic knowledge of java
  * such as: variable, array, loop, if-else, switch, function, class, object,
@@ -10,8 +12,8 @@ public class Basic {
         // Variables.JavaVariables();
         // Variables.TypeCast.JavaTypeCast();
         // Operators.JavaOperators();
-        // JavaString javaString = new JavaString();
-
+        new JavaString();
+        JavaArrays.JavaArraysSort();
     }
 
     public static class Variables extends Basic {
@@ -47,7 +49,7 @@ public class Basic {
     }
 
     public static class JavaString extends Variables {
-        private String myString = "  Hello World ";
+        private String myString = "  Hello World! ";
 
         public JavaString() {
             System.out.println("--------------------");
@@ -61,7 +63,16 @@ public class Basic {
             stringSubstring();
             stringReplace();
             stringSplit();
+            stringInvert();
+            JavaArrays.JavaArraysTest();
             System.out.println("--------------------");
+        }
+
+        private void stringInvert() {
+            for (int i = myString.length() - 1; i >= 0; i--) {
+                System.out.print(myString.charAt(i));
+            }
+            System.out.println();
         }
 
         /**
@@ -233,4 +244,115 @@ public class Basic {
 
         }
     }
+
+    /**
+     * Java Arrays
+     * import java.util.Arrays;
+     * https://www.w3schools.com/java/java_arrays.asp
+     */
+    static String[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+
+    static class JavaArrays {
+
+        public static void JavaArraysTest() {
+            // To find out how many elements an array has, use the length property:
+            System.out.println("Length: " + cars.length);
+            // To change the value of a specific element, refer to the index number:
+            cars[2] = "Opel";
+            // To access an element in an array, refer to the index number:
+            System.out.println(cars[0] + " " + cars[2]);
+        }
+
+        /**
+         * You can loop through the array elements with the for loop,
+         * and use the length property to specify how many times the loop should run.
+         * The following example outputs all elements in the cars array:
+         */
+        public static void JavaArraysLoop() {
+            for (int i = 0; i < cars.length; i++) {
+                System.out.println(cars[i]);
+            }
+            // for each loop is also available
+            for (String i : cars) {
+                System.out.println(i);
+            }
+        }
+
+        /**
+         * Sorting Arrays
+         * The sort() method sorts arrays in ascending order.
+         */
+        public static void JavaArraysSort() {
+            Arrays.sort(cars);
+            System.out.println(cars);// Note: this will print the address of the array since it is an return value of
+                                     // the sort method.
+            // To print the sorted array, you have to loop through it:
+            for (String i : cars) {
+                System.out.println(i);
+            }
+            // or you can use the toString method:
+            System.out.println(Arrays.toString(cars));
+        }
+
+        // multidimensional arrays
+        /**
+         * A multidimensional array is an array containing one or more arrays.
+         * To create a two-dimensional array, add each array within its own set of curly
+         * braces:
+         */
+        public void MultidimensionalArrays() {
+            int[][] myNumbers = { { 1, 2, 3, 4 }, { 5, 6, 7 } };
+            // To access the elements of the myNumbers array, specify two indexes: one for
+            // the array, and one for the element inside that array. This example accesses
+            // the third element (2) in the second array (1) of myNumbers:
+            int x = myNumbers[1][2];
+            System.out.println(x); // Outputs 7
+            // We can also use a for loop inside another for loop to get the elements of a
+            // two-dimensional array (we still have to point to the two indexes):
+            for (int i = 0; i < myNumbers.length; ++i) {
+                for (int j = 0; j < myNumbers[i].length; ++j) {
+                    System.out.println(myNumbers[i][j]);
+                }
+            }
+        }
+
+        public void twoSum() {
+            int[] test = new int[] { 3, 3 };
+            System.out.println(Arrays.toString(twoSum(test, 6)));
+        }
+
+        /**
+         * Given an array of integers, return indices of the two numbers such that they
+         * add up to a specific target.
+         * https://leetcode.com/problems/two-sum
+         * 
+         * @param nums   an array of integers
+         * @param target the target number
+         * @return return indices of the two numbers such that they add up to target
+         */
+        public static int[] twoSum(int[] nums, int target) {
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] + nums[j] == target) {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+            return null;
+
+            // Better Solution:
+            // Map<Integer, Integer> map = new HashMap<>();
+            // for (int i = 0; i < nums.length; i++) {
+            // int complement = target - nums[i];
+            // if (map.containsKey(complement)) {
+            // return new int[] { map.get(complement), i };
+            // }else
+            // map.put(nums[i], i);
+            // }
+            // // In case there is no solution, we'll just return null
+            // return null;
+
+        }
+    }
+
 }
