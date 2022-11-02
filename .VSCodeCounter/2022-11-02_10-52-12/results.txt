@@ -1,0 +1,35 @@
+Date : 2022-11-02 10:52:12
+Directory : f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src
+Total : 8 files,  490 codes, 337 comments, 125 blanks, all 952 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |          8 |        490 |        337 |        125 |        952 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                      |          8 |        490 |        337 |        125 |        952 |
+| BasicLearning                                                                                          |          5 |        393 |        285 |        100 |        778 |
+| LeetCodeTest                                                                                           |          1 |         57 |         30 |         12 |         99 |
+| UnityTest                                                                                              |          1 |         25 |          4 |          6 |         35 |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                               | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\App.java                           | Java     |         15 |         18 |          7 |         40 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\BasicLearning\Basic.java           | Java     |        184 |        141 |         36 |        361 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\BasicLearning\JavaCollections.java | Java     |         76 |         77 |         39 |        192 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\BasicLearning\JavaMath.java        | Java     |         16 |          5 |          3 |         24 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\BasicLearning\JavaStatements.java  | Java     |        108 |         62 |         19 |        189 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\BasicLearning\Quickstart.java      | Java     |          9 |          0 |          3 |         12 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\LeetCodeTest\LeetCode.java         | Java     |         57 |         30 |         12 |         99 |
+| f:\JAVA\NetBeans-11.1\JavaSystematicLearning\JavaSystemLearning\src\UnityTest\MonoBehaviour.java       | Java     |         25 |          4 |          6 |         35 |
+| Total                                                                                                  |          |        490 |        337 |        125 |        952 |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
