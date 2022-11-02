@@ -53,18 +53,19 @@ public class Basic {
 
         public JavaString() {
             System.out.println("--------------------");
-            simpleString();
-            stringLength();
-            stringUpperCase();
-            stringLowerCase();
-            stringConcat();
-            stringTrim();
-            stringIndexOf();
-            stringSubstring();
-            stringReplace();
-            stringSplit();
-            stringInvert();
-            JavaArrays.JavaArraysTest();
+            // simpleString();
+            // stringLength();
+            // stringUpperCase();
+            // stringLowerCase();
+            // stringConcat();
+            // stringTrim();
+            // stringIndexOf();
+            // stringSubstring();
+            // stringReplace();
+            // stringSplit();
+            // stringInvert();
+            // JavaArrays.JavaArraysTest();
+            
             System.out.println("--------------------");
         }
 
@@ -74,6 +75,7 @@ public class Basic {
             }
             System.out.println();
         }
+       
 
         /**
          * A String variable contains a collection of characters surrounded by double
