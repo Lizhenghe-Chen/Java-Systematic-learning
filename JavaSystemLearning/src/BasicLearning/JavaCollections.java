@@ -20,13 +20,63 @@ interface JavaIterable {
  */
 public interface JavaCollections extends JavaIterable {
     static String[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
-    static long startTime = System.currentTimeMillis();
+    static long startTime = System.nanoTime();
 
     public static void main(String[] args) {
 
         // JavaListTest();
-        new JavaArrayList().JavaArrayListTest();
-        System.out.println("Total Time: \n" + (System.currentTimeMillis() - startTime) + "ms");
+        // new JavaArrayList().JavaArrayListTest();
+        // new JavaArrays().JavaMultiDimensionalArraysTest();
+        new JavaStack().JavaStackTest();
+        // ======================================================================
+        long TotalTime = System.nanoTime() - startTime;
+        System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
+    }
+
+    /**
+     * Arrays are used to store multiple values in a single variable, instead of
+     * declaring separate variables for each value.
+     */
+    public class JavaArrays extends Object {
+        public JavaArrays() {
+            // TODO Auto-generated constructor stub
+        }
+
+        public void JavaSimpleArraysTest() {
+            String[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            // System.out.println(cars[0]);
+            // cars[0] = "Opel";
+            // System.out.println(cars[0]);
+            // System.out.println(cars.length);
+
+            // ==== different ways to print out the array:
+            // for (int i = 0; i < cars.length; i++) {
+            // System.out.println(cars[i]);
+            // }
+            // for (String i : cars) {
+            // System.out.println(i);
+            // }
+            // ==== System.out.println(Arrays.toString(cars));
+        }
+
+        public void JavaMultiDimensionalArraysTest() {
+            int[][] myNumbers = { { 1, 2, 3, 4 }, { 5, 6, 7 } };
+            // ==== different ways to print out multi-dimensional array:
+            for (int i = 0; i < myNumbers.length; ++i) {
+                for (int j = 0; j < myNumbers[i].length; ++j) {
+                    System.out.print(myNumbers[i][j] + ", ");
+                }
+                System.out.println();
+            }
+            for (int[] i : myNumbers) {
+                for (int j : i) {
+                    System.out.print(j + ", ");
+                }
+                System.out.println();
+            }
+
+            System.out.println(Arrays.deepToString(myNumbers));
+        }
     }
 
     /**
@@ -62,12 +112,7 @@ public interface JavaCollections extends JavaIterable {
         // Declaring an object of String type with
         // reference to ArrayList class
         // Type safe list
-        List<String> list = new ArrayList<String>(Arrays.asList(cars));
-        Object result[] = list.toArray();
-        // Printing the array
-        for (Object object : result) {
-            System.out.println(object);
-        }
+
     }
 
     /**
@@ -180,12 +225,118 @@ public interface JavaCollections extends JavaIterable {
         }
     }
 
-    /* The LinkedList class is almost identical to the ArrayList */
-    public class myLinkedList extends JavaAbstractList {
-        LinkedList<Integer> list1 = new LinkedList<>(Arrays.asList(2, 4, 3));
-        LinkedList<Integer> list2 = new LinkedList<>(Arrays.asList(5, 6, 4));
+    /**
+     * java Vector
+     * need to import java.util.Vector;
+     * The Vector class implements a growable array of objects. Like an array, it
+     * contains components that can be accessed using an integer index. However, the
+     * size of a Vector can grow or shrink as needed to accommodate adding and
+     * removing items after the Vector has been created.
+     * The Java Vector class is very similar to ArrayList. The main difference is
+     * that Vector is synchronized. If a thread-safe implementation is not needed,
+     * it is recommended to use ArrayList in place of Vector.
+     * The Java Vector class uses an array internally to store the elements. It
+     * increases the array size by doubling it whenever it is full. It is similar to
+     * the dynamic array implementation in C++.
+     */
+    public class javaVector extends JavaAbstractList {
+        // Creating a Vector of String type
+        // Type safe Vector
+        Vector<String> carsVector = new Vector<>(Arrays.asList(cars)); // Create a Vector object
+        AbstractList<String> carsAbstractList = new Vector<>(Arrays.asList(cars)); // Create an AbstractList object
 
-      
+        public void JavaVectorTest() {
+            // To access an element in the Vector, use the get() method and refer to the
+            // index number:
+            System.out.println("element at index 0: \n" + carsVector.get(0));
+            System.out.println(carsAbstractList.get(0));
+
+            // To change an element, use the set() method and refer to the index number:
+            carsVector.set(0, "Opel");
+            System.out.println(carsVector);
+
+            // To add an element, use the add() method:
+            carsVector.add("Lamborghini");
+            System.out.println("After add Lambor:  \n" + carsVector);
+
+            // To remove an item, use the remove() method:
+            carsVector.remove(0);
+            System.out.println("remove the element with index 0 \n" + carsVector);
+
+            // To find out how many elements an Vector has, use the size() method:
+            System.out.println("Array Size: \n" + carsVector.size());
+
+            // To sort an Vector, use the sort() or Collection.sort() method
+            carsVector.sort(Collections.reverseOrder());
+            System.out.println("sort Vector reversly: \n" + carsVector);
+            carsVector.sort(Comparator.reverseOrder());
+            System.out.println(carsVector);
+            Collections.sort(carsVector);
+            System.out.println("sort Vector acc: \n" + carsVector);
+
+            Collections.sort(carsVector);
+            System.out.println(carsVector);
+
+            // To convert an Vector to an array, use the toArray() method:
+            Object[] carsArray = carsVector.toArray();
+            System.out.println("To array: \n" + Arrays.toString(carsArray));
+
+            // To remove all items, use the clear() method:
+            carsVector.clear();
+            System.out.println("clear the Vector: \n" + carsVector);
+
+            // To check if an Vector is empty, use the isEmpty() method:
+            System.out.println("Is Empty? : \n" + carsVector.isEmpty());
+
+            // To copy one Vector into another, use the
+        }
+
     }
 
+    /**
+     * java Stack
+     * need to import java.util.Stack;
+     * The Stack class represents a last-in-first-out (LIFO) stack of objects.
+     * The usual push and pop operations are provided, as well as a method to
+     */
+    public class JavaStack extends javaVector {
+        // Creating an object of Stack class
+        Stack<String> carsStack = new Stack<>();
+
+        public void JavaStackTest() {
+            // To add an element to the Stack, use the push() method:
+            carsStack.push("Volvo");
+            carsStack.push("BMW");
+            carsStack.push("Ford");
+            carsStack.push("Mazda");
+            System.out.println("Stack: " + carsStack);
+
+            // To remove an element from the Stack, use the pop() method:
+            System.out.println("pop(): " + carsStack.pop());
+
+            // To get the element at the top of the Stack, use the peek() method:
+            System.out.println("peek(): " + carsStack.peek());
+
+            // To get the size of the Stack, use the size() method:
+            System.out.println("size(): " + carsStack.size());
+
+            // To remove all elements from the Stack, use the clear() method:
+            carsStack.clear();
+            System.out.println("clear(): " + carsStack);
+
+            // To check if the Stack is empty, use the empty() method:
+            System.out.println("empty(): " + carsStack.empty());
+
+            // To search for an element in the Stack, use the search() method:
+            System.out.println("search(): " + carsStack.search("Volvo"));
+        }
+
+        /* The LinkedList class is almost identical to the ArrayList */
+        public class myLinkedList extends JavaAbstractList {
+            LinkedList<Integer> list1 = new LinkedList<>(Arrays.asList(2, 4, 3));
+            LinkedList<Integer> list2 = new LinkedList<>(Arrays.asList(5, 6, 4));
+
+        }
+
+    }
 }

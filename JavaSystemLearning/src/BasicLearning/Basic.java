@@ -12,8 +12,9 @@ public class Basic {
         // Variables.JavaVariables();
         // Variables.TypeCast.JavaTypeCast();
         // Operators.JavaOperators();
-        new JavaString();
-        JavaArrays.JavaArraysSort();
+         new JavaString();
+       // new JavaMath();
+        // JavaArrays.JavaArraysSort();
     }
 
     public static class Variables extends Basic {
@@ -61,12 +62,28 @@ public class Basic {
             // stringTrim();
             // stringIndexOf();
             // stringSubstring();
-            // stringReplace();
+          //  stringReplace();
             // stringSplit();
             // stringInvert();
             // JavaArrays.JavaArraysTest();
-            
+            stringSplitWithRegex();
+          //  stringMatch();
+            // String containStr = "[ABCD]";
+            // System.out.println(ContainsAnyOutOfCharList(myString, containStr));
             System.out.println("--------------------");
+        }
+
+        /**
+         * This function is used to check if the string contains any char out of the
+         * char list
+         * 
+         * @param targetStr
+         * @param charList
+         */
+        private Boolean ContainsAnyOutOfCharList(String targetStr, String charList) {
+            // System.out.println(targetStr.replaceAll("[ABCD]", ""));
+            String temp = targetStr.replaceAll("[^ABCD]", "");
+            return temp.equals(targetStr);
         }
 
         private void stringInvert() {
@@ -75,13 +92,17 @@ public class Basic {
             }
             System.out.println();
         }
-       
+
+        private void stringInvertWithBuilder() {
+            System.out.println(new StringBuilder(myString).reverse());
+        }
 
         /**
          * A String variable contains a collection of characters surrounded by double
          * quotes:
          */
         public void simpleString() {
+
             System.out.println("simple String: " + myString);
         }
 
@@ -126,13 +147,32 @@ public class Basic {
 
         public void stringReplace() {
             System.out.println(myString.replace("l", "d"));
+            System.out.println(myString.replaceFirst("l", "*"));
+            System.out.println(myString.replaceAll("l{1,}", "*"));
+            String test = "123**456**789";
+            System.out.println(test.replaceAll("\\*{1,}", ","));//
         }
 
         public void stringSplit() {
             String[] myStringArray = myString.split(" ");// split by space,ignore end space
+            System.out.println(Arrays.toString(myStringArray));
+
+        }
+
+        /** https://www.w3schools.com/java/java_regex.asp */
+        public void stringSplitWithRegex() {
+            String[] myStringArray = myString.split("\\s+");// split by space,ignore end space
+            // myStringArray = myString.split("l{1,}");// split by any l
             for (String string : myStringArray) {
                 System.out.println(myStringArray.length + string);
             }
+            String test ="123,456,789";
+            System.out.println(test.indexOf("[0-9]{1,}")) ;
+        }
+
+        public void stringMatch() {
+            System.out.println(myString.matches("Hello World"));
+            System.out.println(myString.matches("(.*)World(.*)"));
         }
 
     }
@@ -168,6 +208,10 @@ public class Basic {
             System.out.println((int) myDouble); // Outputs 9
             // double to string
             System.out.println((Double.toString(myDouble))); // Outputs 9.78 as string
+            System.out.println(Integer.parseInt("asd"));//
+            System.out.println(Integer.valueOf("123"));
+            System.out.println(Double.valueOf("123.456"));
+            System.out.println(Double.parseDouble("123.456"));
         }
     }
 
