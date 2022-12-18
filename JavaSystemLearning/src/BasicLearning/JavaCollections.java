@@ -56,7 +56,8 @@ public interface JavaCollections extends JavaIterable {
             // for (String i : cars) {
             // System.out.println(i);
             // }
-            // ==== System.out.println(Arrays.toString(cars));
+            //System.out.println(Arrays.toString(cars));
+            // ==== 
         }
 
         public void JavaMultiDimensionalArraysTest() {
@@ -326,6 +327,7 @@ public interface JavaCollections extends JavaIterable {
 
             // To check if the Stack is empty, use the empty() method:
             System.out.println("empty(): " + carsStack.empty());
+            
 
             // To search for an element in the Stack, use the search() method:
             System.out.println("search(): " + carsStack.search("Volvo"));

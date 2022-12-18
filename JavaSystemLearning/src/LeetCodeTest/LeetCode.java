@@ -16,6 +16,7 @@ public class LeetCode {
 }
 
 class Solution {
+    
     public void ShiftofCoordinates() {
         ShiftofCoordinates("A1;A10;");
     }

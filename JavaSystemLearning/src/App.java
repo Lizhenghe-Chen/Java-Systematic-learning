@@ -30,7 +30,7 @@ public class App {
      * then you can use the class in the package.
      */
     static void JavaBasicTest() {
-        Basic.Variables.JavaVariables();
+        Variables.JavaVariables();
         // Basic.TypeCast.JavaTypeCast();
         // Basic.Operators.JavaOperators();
         // Basic.JavaString javaString = new Basic.JavaString();

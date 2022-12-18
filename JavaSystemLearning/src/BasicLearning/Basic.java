@@ -1,6 +1,7 @@
 package BasicLearning;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * This java file includes some basic knowledge of java
@@ -11,170 +12,10 @@ public class Basic {
     public static void main(String[] args) {
         // Variables.JavaVariables();
         // Variables.TypeCast.JavaTypeCast();
-        // Operators.JavaOperators();
-         new JavaString();
-       // new JavaMath();
-        // JavaArrays.JavaArraysSort();
-    }
-
-    public static class Variables extends Basic {
-        /**
-         * In Java, there are different types of variables, for example:
-         * 
-         * String - stores text, such as "Hello". String values are surrounded by double
-         * quotes
-         * int - stores integers (whole numbers), without decimals, such as 123 or -123
-         * float - stores floating point numbers, with decimals, such as 19.99 or -19.99
-         * char - stores single characters, such as 'a' or 'B'. Char values are
-         * surrounded by single quotes
-         * boolean - stores values with two states: true or false
-         * https://www.w3schools.com/java/java_variables.asp
-         */
-        public static void JavaVariables() {
-            // Java String:
-            String greeting = "Hello World";
-            System.out.println(greeting);
-            // Java int:
-            int myNum = 5;
-            System.out.println(myNum);
-            // Java float:
-            float myFloatNum = 5.99f;
-            System.out.println(myFloatNum);
-            // Java char:
-            char myLetter = 'D';
-            System.out.println(myLetter);
-            // Java boolean:
-            boolean myBool = true;
-            System.out.println(myBool);
-        }
-    }
-
-    public static class JavaString extends Variables {
-        private String myString = "  Hello World! ";
-
-        public JavaString() {
-            System.out.println("--------------------");
-            // simpleString();
-            // stringLength();
-            // stringUpperCase();
-            // stringLowerCase();
-            // stringConcat();
-            // stringTrim();
-            // stringIndexOf();
-            // stringSubstring();
-          //  stringReplace();
-            // stringSplit();
-            // stringInvert();
-            // JavaArrays.JavaArraysTest();
-            stringSplitWithRegex();
-          //  stringMatch();
-            // String containStr = "[ABCD]";
-            // System.out.println(ContainsAnyOutOfCharList(myString, containStr));
-            System.out.println("--------------------");
-        }
-
-        /**
-         * This function is used to check if the string contains any char out of the
-         * char list
-         * 
-         * @param targetStr
-         * @param charList
-         */
-        private Boolean ContainsAnyOutOfCharList(String targetStr, String charList) {
-            // System.out.println(targetStr.replaceAll("[ABCD]", ""));
-            String temp = targetStr.replaceAll("[^ABCD]", "");
-            return temp.equals(targetStr);
-        }
-
-        private void stringInvert() {
-            for (int i = myString.length() - 1; i >= 0; i--) {
-                System.out.print(myString.charAt(i));
-            }
-            System.out.println();
-        }
-
-        private void stringInvertWithBuilder() {
-            System.out.println(new StringBuilder(myString).reverse());
-        }
-
-        /**
-         * A String variable contains a collection of characters surrounded by double
-         * quotes:
-         */
-        public void simpleString() {
-
-            System.out.println("simple String: " + myString);
-        }
-
-        public void stringLength() {
-            System.out.println("Length of String: " + myString.length());
-        }
-
-        public void stringUpperCase() {
-            System.out.println("UpperCase String: " + myString.toUpperCase());
-        }
-
-        public void stringLowerCase() {
-            System.out.println("LowerCase String: " + myString.toLowerCase());
-        }
-
-        /** string.concat() is more strict than "+" */
-        public void stringConcat() {
-            System.out.println("concat String: " + myString.concat("!!!" + null));
-            // System.out.println(myString.concat(null));//this will throw an exception
-        }
-
-        /**
-         * remove any white space before and after the string
-         */
-        public void stringTrim() {
-            System.out.println("Trim String: " + myString.trim());
-        }
-
-        public void stringCharAt() {
-            System.out.println(myString.charAt(0));
-        }
-
-        public void stringIndexOf() {
-            // " He'l'lo World " -> 5
-            System.out.println(myString.indexOf("l"));
-        }
-
-        public void stringSubstring() {
-            // " Hel'lo World " -> " Hel"
-            System.out.println(myString.substring(0, 5));
-        }
-
-        public void stringReplace() {
-            System.out.println(myString.replace("l", "d"));
-            System.out.println(myString.replaceFirst("l", "*"));
-            System.out.println(myString.replaceAll("l{1,}", "*"));
-            String test = "123**456**789";
-            System.out.println(test.replaceAll("\\*{1,}", ","));//
-        }
-
-        public void stringSplit() {
-            String[] myStringArray = myString.split(" ");// split by space,ignore end space
-            System.out.println(Arrays.toString(myStringArray));
-
-        }
-
-        /** https://www.w3schools.com/java/java_regex.asp */
-        public void stringSplitWithRegex() {
-            String[] myStringArray = myString.split("\\s+");// split by space,ignore end space
-            // myStringArray = myString.split("l{1,}");// split by any l
-            for (String string : myStringArray) {
-                System.out.println(myStringArray.length + string);
-            }
-            String test ="123,456,789";
-            System.out.println(test.indexOf("[0-9]{1,}")) ;
-        }
-
-        public void stringMatch() {
-            System.out.println(myString.matches("Hello World"));
-            System.out.println(myString.matches("(.*)World(.*)"));
-        }
-
+        // javaOperators.JavaOperators();
+        // new JavaString();
+        // new JavaMath();
+        JavaArrays.JavaArraysSort();
     }
 
     public static class DataTypes extends Variables {
@@ -212,82 +53,6 @@ public class Basic {
             System.out.println(Integer.valueOf("123"));
             System.out.println(Double.valueOf("123.456"));
             System.out.println(Double.parseDouble("123.456"));
-        }
-    }
-
-    public static class Operators extends Basic {
-        /**
-         * Java has the following types of operators:
-         * Arithmetic operators: +, -, *, /, %, ++, --
-         * Assignment operators: =, +=, -=, *=, /=, %=
-         * Comparison operators: ==, !=, >, <, >=, <=
-         * Logical operators: &&, ||, !
-         * Bitwise operators: ~ >> << >>>
-         * https://www.w3schools.com/java/java_operators.asp
-         */
-        public static void JavaOperators() {
-            int x = 5, y = 10;
-            System.out.println(x + y); // Outputs 15 (5 + 10)
-            System.out.println(x - y); // Outputs -5 (5 - 10)
-            System.out.println(x * y); // Outputs 50 (5 * 10)
-            System.out.println(x / y); // Outputs 0 (5 / 10)
-            System.out.println(x % y); // Outputs 5 (5 % 10)
-            x = 5;
-            y = 10;
-            System.out.println(x++); // Outputs 5 (output then 5 + 1)
-            x = 5;
-            y = 10;
-            System.out.println(x--); // Outputs 5 (output then 6 - 1)
-            x = 5;
-            y = 10;
-            System.out.println(++x); // Outputs 6 (5 + 1 then output )
-            x = 5;
-            y = 10;
-            System.out.println(--x); // Outputs 4 (5 - 1 then output )
-            x = 5;
-            y = 10;
-            System.out.println(x += y); // Outputs 15 (5 + 10 then output)
-            x = 5;
-            y = 10;
-            System.out.println((x = +y) + " " + x); // Outputs 10 (x = +10)
-            x = 5;
-            y = 10;
-            System.out.println(x -= y); // Outputs -5 (5 - 10)
-            x = 5;
-            y = 10;
-            System.out.println(x *= y); // Outputs 50 (5 * 10)
-            x = 5;
-            y = 10;
-            System.out.println(x /= y); // Outputs 0 (5 / 10 = 0.5 =~ 0)
-            x = 5;
-            y = 10;
-            System.out.println(y %= 5); // Outputs 0 (10 % 5 = 2 * 5 + 0)
-            System.out.println(x == y); // Outputs false (5 == 10)
-            System.out.println(x != y); // Outputs true (5 != 10)
-            System.out.println(x > y); // Outputs false (5 > 10)
-            System.out.println(x <= y); // Outputs true (5 <= 10)
-            System.out.println(!(x == y)); // Outputs true (!(5 == 10))
-            System.out.println(x & y); // Outputs 0 (5 & 10)
-            System.out.println(x | y); // Outputs 15 (5 | 10)
-            System.out.println(x ^ y); // Outputs 15 (5 ^ 10)
-            System.out.println(~3); // Outputs -4 (~3)
-            // 0011=3 after ~:
-            // 1100=4
-            // Signed left shift operator
-            System.out.println(x << 2); // Outputs 20 (5 << 2)
-            // 00000101=5 after <<2: move 2 bits to the left
-            // 00010100=20
-            System.out.println(x >> 1); // Outputs 2 (5 >> 1)
-            // 00000101=5 after >>1: move 1 bit to the right
-            // 00000010=2
-            // Unsigned right shift operator
-            System.out.println(x >>> 1); // Outputs 2 (5 >>> 1)
-            // 00000101=5 after >>>1: move 1 bit to the right
-            // 00000010=2
-            System.out.println(-x >>> 2); // Outputs 1073741822 (-5 >>> 2)
-            // 11111111111111111111111111111011=-5 after >>>2: move 2 bits to the right
-            // 00111111111111111111111111111110=1073741822
-
         }
     }
 
@@ -332,6 +97,7 @@ public class Basic {
             Arrays.sort(cars);
             System.out.println(cars);// Note: this will print the address of the array since it is an return value of
                                      // the sort method.
+            // Arrays.sort(cars, Comparator.reverseOrder());// sort in reverse order
             // To print the sorted array, you have to loop through it:
             for (String i : cars) {
                 System.out.println(i);
@@ -362,43 +128,6 @@ public class Basic {
             }
         }
 
-        public void twoSum() {
-            int[] test = new int[] { 3, 3 };
-            System.out.println(Arrays.toString(twoSum(test, 6)));
-        }
-
-        /**
-         * Given an array of integers, return indices of the two numbers such that they
-         * add up to a specific target.
-         * https://leetcode.com/problems/two-sum
-         * 
-         * @param nums   an array of integers
-         * @param target the target number
-         * @return return indices of the two numbers such that they add up to target
-         */
-        public static int[] twoSum(int[] nums, int target) {
-            for (int i = 0; i < nums.length; i++) {
-                for (int j = i + 1; j < nums.length; j++) {
-                    if (nums[i] + nums[j] == target) {
-                        return new int[] { i, j };
-                    }
-                }
-            }
-            return null;
-
-            // Better Solution:
-            // Map<Integer, Integer> map = new HashMap<>();
-            // for (int i = 0; i < nums.length; i++) {
-            // int complement = target - nums[i];
-            // if (map.containsKey(complement)) {
-            // return new int[] { map.get(complement), i };
-            // }else
-            // map.put(nums[i], i);
-            // }
-            // // In case there is no solution, we'll just return null
-            // return null;
-
-        }
     }
 
 }
