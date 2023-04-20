@@ -13,9 +13,9 @@ public class Basic {
         // Variables.JavaVariables();
         // Variables.TypeCast.JavaTypeCast();
         // javaOperators.JavaOperators();
-        // new JavaString();
+         new JavaString();
         // new JavaMath();
-        JavaArrays.JavaArraysSort();
+       // JavaArrays.JavaArraysSort();
     }
 
     public static class DataTypes extends Variables {

@@ -2,21 +2,10 @@ package LeetCodeTest;
 
 import java.util.*;
 
-/* This class is for LeetCode test */
-public class LeetCode {
-    public static void main(String[] args) {
-        long startTime = System.nanoTime();
-
-        new Solution().ShiftofCoordinates();
-
-        long TotalTime = System.nanoTime() - startTime;
-        // print total time
-        System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
-    }
-}
+import javax.naming.spi.DirStateFactory.Result;
 
 class Solution {
-    
+
     public void ShiftofCoordinates() {
         ShiftofCoordinates("A1;A10;");
     }
@@ -334,5 +323,275 @@ class Solution {
         } else {
             return result;
         }
+    }
+
+    // https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/727/
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {// if the current element is not equal to the previous one
+                i++;// it means we have found a new element, so we need to increment the index
+                nums[i] = nums[j];// assign the current element to the next position
+            }
+        }
+        return i + 1;
+
+    }
+
+    /**
+     * https://leetcode.com/problems/cells-in-a-range-on-an-excel-sheet/
+     * 
+     * @param s
+     * @return
+     */
+    public List<String> cellsInRange(String s) {
+        String start = s.split(":")[0];
+        String end = s.split(":")[1];
+        // Character startChar = start.charAt(0);
+        // int startIndex = Character.getNumericValue(start.charAt(1));//
+        // https://www.scaler.com/topics/char-to-int-in-java/;
+        // Character endChar = end.charAt(0);
+        // int endIndex = end.charAt(1) - '0';//
+        // https://www.scaler.com/topics/char-to-int-in-java/;
+        // System.out.println(startChar + "," + startIndex + "," + endChar + "," +
+        // endIndex);
+
+        List<String> result = new ArrayList<String>();
+        // int columRange = endChar - startChar;
+        // int rowRange = endIndex - startIndex;
+        // System.out.println(columRange + "," + rowRange);
+        for (Character col = start.charAt(0); col <= end.charAt(0); col++) {
+            for (int row = start.charAt(1) - '0'; row <= end.charAt(1) - '0'; row++) {
+                // System.out.println(col+""+row);
+                result.add(col + "" + row);
+            }
+
+        }
+        System.out.println(result);
+        return result;
+    }
+
+    /**
+     * https://leetcode.com/problems/append-k-integers-with-minimal-sum/
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
+    public long minimalKSum(int[] nums, int k) {
+        int result = 0;
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            list.add(nums[i]);
+        }
+        int value = 1;
+        while (k > 0) {
+            if (list.contains(value)) {
+                value++;
+            } else {
+                result += value;
+                System.out.println(value);
+                k--;
+                value++;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * 
+     * @param nums
+     * @return
+     */
+    public int firstMissingPositive(int[] nums) {
+        Set<Integer> sets = new TreeSet<>();
+        for (int i : nums) {
+            sets.add(i);
+        }
+        int compare = 1;
+        System.out.print(sets.size() + "" + nums.length);
+        while (compare < sets.size()) {
+            if (sets.contains(compare)) {
+                compare++;
+            } else
+                return compare;
+        }
+        return sets.size() + 1;
+    }
+
+    public boolean isAnagram(String s, String t) {
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+        System.out.println(Arrays.toString(sArray) + "," + Arrays.toString(tArray));
+        System.out.println(Arrays.equals(sArray, tArray));
+        return sArray == tArray;
+    }
+
+    public int myAtoi(String s) {
+
+        s = s.trim();
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        // System.out.println( s.charAt(0));
+        if (s.charAt(0) != '-' && s.charAt(0) != '+' && !Character.isDigit(s.charAt(0))) {
+            return 0;
+        }
+        int i = 1;
+        char positiveNegative = s.charAt(0);
+        if (positiveNegative == '-')
+            i = -1;
+
+        System.out.println("positiveNegative: " + i);
+        s = s.replaceAll("[^0-9]", "");
+        System.out.println(s);
+
+        // s = s.replaceAll("[^0-9-+]", "");
+        Double result;
+        try {
+            result = Double.valueOf(s);
+            System.out.println(result);
+            // clamp the integer so that it remains in the range.
+            result = Math.max(result, Integer.MIN_VALUE);
+            result = Math.min(result, Integer.MAX_VALUE);
+        } catch (Exception e) {
+            return 0;
+        }
+        // make sure the
+        return result.intValue() * i;
+    }
+
+    /*
+     * public String longestCommonPrefix(String[] strs) {
+     * String result = "";
+     * String base = strs[0];
+     * int minLength = 201;
+     * // 1. get the shortest string
+     * for (String string : strs) {
+     * if (string.length() < minLength) {
+     * base = string;
+     * minLength = string.length();
+     * }
+     * }
+     * System.out.println("base: " + base);
+     * 
+     * String sbString = "";
+     * int correctCount = 0;
+     * // iterate the subString
+     * for (int i = 0; i < base.length(); i++) {
+     * correctCount = 0;
+     * sbString = base.substring(i, base.length());
+     * System.out.println(sbString);
+     * for (String string : strs) {
+     * if (!string.contains(sbString)) {
+     * break;
+     * } else {
+     * correctCount++;
+     * }
+     * }
+     * if (correctCount == strs.length) {
+     * result = sbString;
+     * System.out.println("find one:" + result);
+     * break;
+     * }
+     * }
+     * 
+     * for (int i = base.length(); i > 0; i--) {
+     * correctCount = 0;
+     * sbString = base.substring(0, i);
+     * System.out.println(sbString);
+     * for (String string : strs) {
+     * if (!string.contains(sbString)) {
+     * 
+     * break;
+     * } else {
+     * correctCount++;
+     * }
+     * }
+     * if (correctCount == strs.length) {
+     * result = sbString;
+     * System.out.println("find one:" + result);
+     * break;
+     * }
+     * }
+     * 
+     * return result;
+     * }
+     */
+    public String longestCommonPrefix(String[] strs) {
+        String result = "";
+        String base = strs[0];
+
+        System.out.println("base: " + base);
+
+        String sbString = "";
+        int correctCount = 0;
+        // iterate the subString
+        for (int i = 0; i <= base.length(); i++) {
+            correctCount = 0;
+            sbString = base.substring(0, i);
+            System.out.println(sbString);
+            for (String string : strs) {
+                if (!string.startsWith(sbString)) {
+                    break;
+                } else {
+                    correctCount++;
+                }
+            }
+            if (correctCount == strs.length && sbString.length() > result.length()) {
+                result = sbString;
+                System.out.println("find one:" + result);
+
+            }
+        }
+
+        return result;
+    }
+
+    public int maxArea(int[] height) {
+        // int max = 0;
+        // for (int i = 0; i < height.length; i++) {
+        //     for (int j = i + 1; j < height.length; j++) {
+        //         int w = j - i;
+        //         int h = Math.min(height[i], height[j]);
+        //         int area = w * h;
+        //         max = Math.max(max, area);
+        //     }
+            // better solution: two pointers
+            int left = 0;
+            int right = height.length - 1;
+            int max = 0;
+            while(left < right){
+            int w = right - left;
+            int h = Math.min(height[left], height[right]);
+            int area = h * w;
+            max = Math.max(max, area);
+            if(height[left] < height[right]) left++;//move the shorter line
+            else if(height[left] > height[right]) right--;//move the shorter line
+            else {
+            left++;
+            right--;
+            }
+            }
+            return max;
+        }
+}
+
+/* This class is for LeetCode test */
+public class LeetCode {
+    public static void main(String[] args) {
+        long startTime = System.nanoTime();
+        // new Solution().myAtoi("-");
+
+        System.out
+                .println("Result: " + new Solution().maxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }));
+        long TotalTime = System.nanoTime() - startTime;
+        // print total time
+        System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
     }
 }

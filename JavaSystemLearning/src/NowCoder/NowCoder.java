@@ -11,7 +11,9 @@ public class NowCoder {
         long startTime = System.nanoTime();
         // ================================================================
         // ListNode.ListNodeTest();
-        // new Solution().StringToOperation();
+        new Solution().Dichotomy(
+                new int[] { 2, 3, 0, 1, 5, 15, 25, 33, 22, 8, 9, 10, 66, 4, 6, 7, 8, 0 },
+                22, true);
         // Recursion.Febonacci();
         // ================================================================
         long TotalTime = System.nanoTime() - startTime;
@@ -304,12 +306,60 @@ class Solution {
         return result;
     }
 
+    /**
+     * 
+     * @param input
+     * @return
+     * @throws ScriptException
+     */
     private int StringToOperation(String input) throws ScriptException {
         ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName("JavaScript");
         return (int) scriptEngine.eval(input);
     }
 
-    public void SumOfCharacter() {
+    /**
+     * given a sorted list, it is more efficiency to use Dichoyomy to search an item
+     */
+    public void Dichotomy(int[] list, int target, Boolean useDichotomy) {
+
+        // System.out.println("Before Sort: " + Arrays.toString(list));
+        // convert int to Integer
+        // Integer[] list2 = new Integer[list.length];
+        // for (int i = 0; i < list.length; i++) {
+        // list2[i] = list[i];
+        // }
+        // Arrays.sort(list2);
+        // System.out.println("After Sort: " + Arrays.toString(list2));
+        Arrays.sort(list);
+        int[] list2 = list;
+        if (useDichotomy) {
+            // dichotomy:
+            int left = 0, right = list2.length - 1, mid;
+            while (left <= right) {// notice: <= not < because we need to check the last item
+                mid = (left + right) / 2;// find the middle index
+                // System.out.println("left: " + left + ", right: " + right + ", mid: " + mid +
+                // ", mid value: " + list2[mid]);
+                if (list2[mid] == target) {// if the middle item is the target, return
+                    System.out.println("Find the target: " + target + " at index: " + mid);
+                    return;
+                }
+                if (list2[mid] > target) {// if the middle item is bigger than target, search the left part
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;// if the middle item is smaller than target, search the right part
+                }
+            }
+            System.out.println("Not find the target: " + target);
+        } else { // traditional way:
+            for (int i = 0; i < list2.length; i++) {
+                if (list2[i] == target) {
+                    System.out.println("Find the target: " + target + " at index: " + i);
+                    return;
+                }
+            }
+            System.out.println("Not find the target: " + target);
+        }
+
     }
 
     private void SumOfCharacter(String str) {

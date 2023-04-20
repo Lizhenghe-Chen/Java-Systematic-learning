@@ -14,14 +14,16 @@ public class JavaString extends Variables {
         // stringConcat();
         // stringTrim();
         // stringIndexOf();
+        //StringtoCharArray();
         // stringSubstring();
         // stringReplace();
         // stringSplit();
-        // stringInvert();
+         stringInvert();
+         stringInvertWithBuilder();
         // JavaArrays.JavaArraysTest();
-        stringSplitWithRegex();
+        // stringSplitWithRegex();
         // ContainsAnyOutOfCharList("Hello ButterFly", "[^BF]");
-        // stringMatch();
+         stringMatch();
         // String containStr = "[ABCD]";
         // System.out.println(ContainsAnyOutOfCharList(myString, containStr));
         System.out.println("--------------------");
@@ -65,6 +67,11 @@ public class JavaString extends Variables {
         System.out.println(myString.charAt(0));
     }
 
+    public void StringtoCharArray() {
+        char[] myCharArray = myString.toCharArray();
+        System.out.println(Arrays.toString(myCharArray));
+    }
+
     public void stringIndexOf() {
         // " He'l'lo World " -> 5
         System.out.println(myString.indexOf("l"));
@@ -80,30 +87,31 @@ public class JavaString extends Variables {
 
     public void stringReplace() {
         System.out.println(myString.replace("l", "d"));
-        System.out.println(myString.replaceFirst("l", "*"));
+        // System.out.println(myString.replaceFirst("l", "*"));
         System.out.println(myString.replaceAll("l{1,}", "*"));
         String test = "123**456**789";
-        System.out.println(test.replaceAll("\\*{1,}", ","));//
+        // notice that the '*' is a special char in regex, so we need to use '\\*'
+        System.out.println(test.replaceAll("\\*{1,}", ","));
     }
 
     public void stringSplit() {
-        String[] myStringArray = myString.split(" ");// split by space,ignore end space
-        String[] myStringArray2 = myString.split(" ", 2);// split string to 2 parts
+        String[] myStringArray = myString.split(" ");// split by space, but ignore end space!
+        String[] myStringArray2 = myString.split(" ", 2);// split string to 2 parts, but ignore end space!
 
-        System.out.println(Arrays.toString(myStringArray));
+        System.out.println(Arrays.toString(myStringArray2));
 
     }
 
     /** https://www.w3schools.com/java/java_regex.asp */
     public void stringSplitWithRegex() {
-        String[] myStringArray = myString.split("\\s+");// split by space,ignore end space
+        String[] myStringArray = myString.split("\\s+");// '\\s+' means split by any space, ' ',' ', similar to \\s{1,}
         // myStringArray = myString.split("l{1,}");// split by any l
         for (String string : myStringArray) {
             System.out.println(myStringArray.length + string);
         }
         String test = "123,456,789";
-        System.out.println(Arrays.toString("Hello12Wor34ld555".split("[0-9]+")));
-       
+        System.out.println(Arrays.toString("Hello12Wor34ld555".split("[0-9]+")));// '+' means 1 or more
+
     }
 
     /**
@@ -133,7 +141,7 @@ public class JavaString extends Variables {
     public void stringMatch() {
         System.out.println(myString.matches("Hello World"));
         System.out.println(myString.matches("(.*)World(.*)"));
-        System.out.println(myString.matches("(.*)Hello(.*)"));//"  Hello World! "
+        System.out.println(myString.matches("(.*)Hello(.*)"));// " Hello World! "
     }
 
 }
