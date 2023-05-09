@@ -1,16 +1,67 @@
 package LeetCodeTest;
 
 import java.util.*;
-
 import javax.naming.spi.DirStateFactory.Result;
 
-class Solution {
+//write the interface here
+interface LeetCodeQuestions {
+    public void ShiftofCoordinates(String inputString);
+
+    public void Caculate(String input, int[] total);
+
+    public void searchInsert();
+
+    public int searchInsert(int[] nums, int target);
+
+    public void reverseString();
+
+    public void reverseInteger();
+
+    public void firstUniqChar();
+
+    public void twoSum();
+
+    public void intToRoman();
+
+    public void isPalindrome();
+
+    public void isSentencePalindrome();
+
+    public void longestPalindrome();
+
+    public int longestPalindrome(String[] words);
+
+    public int removeDuplicates(int[] nums);
+
+    public List<String> cellsInRange(String s);
+
+    public long minimalKSum(int[] nums, int k);
+
+    public int firstMissingPositive(int[] nums);
+
+    public boolean isAnagram(String s, String t);
+
+    public int myAtoi(String s);
+
+    public String longestCommonPrefix(String[] strs);
+
+    public int maxArea(int[] height);
+
+    public boolean checkPalindromeFormation(String a, String b);
+
+    boolean isPalindrome(String s, int i, int j);
+
+    public int climbStairs(int n);
+}
+
+//
+class Solution implements LeetCodeQuestions {
 
     public void ShiftofCoordinates() {
         ShiftofCoordinates("A1;A10;");
     }
 
-    private void ShiftofCoordinates(String inputString) {
+    public void ShiftofCoordinates(String inputString) {
         int[] total = { 0, 0 };
 
         String[] stringList = inputString.split(";");
@@ -21,7 +72,7 @@ class Solution {
         System.out.println("total: " + Arrays.toString(total));
     }
 
-    private void Caculate(String input, int[] total) {
+    public void Caculate(String input, int[] total) {
         int value = 0;
         try {
             if (input.length() == 2) {
@@ -58,7 +109,7 @@ class Solution {
         System.out.println(searchInsert(new int[] { 1, 3, 5, 6 }, 0));// 0
     }
 
-    private int searchInsert(int[] nums, int target) {
+    public int searchInsert(int[] nums, int target) {
         // consider the target is at the beginning of the array or the end of the array
         // first
         if (target > nums[nums.length - 1]) {
@@ -101,7 +152,7 @@ class Solution {
     }
 
     /** https://leetcode.com/problems/reverse-string */
-    private void reverseString(char[] s) {
+    public void reverseString(char[] s) {
 
         int i = 0;
         int j = s.length - 1;
@@ -121,7 +172,7 @@ class Solution {
         System.out.println(reverseInteger(x));
     }
 
-    private int reverseInteger(int x) {
+    public int reverseInteger(int x) {
 
         // try {
         // if (x < 0) {
@@ -155,7 +206,7 @@ class Solution {
         System.out.println(firstUniqChar(s));
     }
 
-    private int firstUniqChar(String s) {
+    public int firstUniqChar(String s) {
         // int counter = 0;
         // for (int i = 0; i < s.length(); i++) {
         // for (int j = 0; j < s.length(); j++) {
@@ -189,7 +240,7 @@ class Solution {
         System.out.println(result[0] + ", " + result[1]);
     }
 
-    private int[] twoSum(int[] nums, int target) {
+    public int[] twoSum(int[] nums, int target) {
         // for (int i = 0; i < nums.length; i++) {
         // for (int j = i + 1; j < nums.length; j++) {
         // if (nums[i] + nums[j] == target) {
@@ -217,7 +268,7 @@ class Solution {
         System.out.println(intToRoman(1994));
     }
 
-    private String intToRoman(int num) {
+    public String intToRoman(int num) {
         // a table with all the roman symbols
         int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
         String[] symbols = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
@@ -245,7 +296,7 @@ class Solution {
         System.out.println(isPalindrome(10));
     }
 
-    private boolean isPalindrome(int x) {
+    public boolean isPalindrome(int x) {
         StringBuilder sb = new StringBuilder(String.valueOf(x));
         return sb.toString().equals(sb.reverse().toString());
     }
@@ -264,7 +315,7 @@ class Solution {
      * @param s
      * @return
      */
-    private boolean isSentencePalindrome(String s) {
+    public boolean isSentencePalindrome(String s) {
         s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         System.out.println(s);
         StringBuffer sb = new StringBuffer(s);
@@ -295,7 +346,7 @@ class Solution {
      * @param words the array of words
      * @return the length of
      */
-    private int longestPalindrome(String[] words) {
+    public int longestPalindrome(String[] words) {
         boolean hasOneDoubleString = false;
         // StringBuffer sb = new StringBuffer();
         ArrayList<String> wordsList = new ArrayList<>(Arrays.asList(words));// a temp list
@@ -556,30 +607,113 @@ class Solution {
     public int maxArea(int[] height) {
         // int max = 0;
         // for (int i = 0; i < height.length; i++) {
-        //     for (int j = i + 1; j < height.length; j++) {
-        //         int w = j - i;
-        //         int h = Math.min(height[i], height[j]);
-        //         int area = w * h;
-        //         max = Math.max(max, area);
-        //     }
-            // better solution: two pointers
-            int left = 0;
-            int right = height.length - 1;
-            int max = 0;
-            while(left < right){
+        // for (int j = i + 1; j < height.length; j++) {
+        // int w = j - i;
+        // int h = Math.min(height[i], height[j]);
+        // int area = w * h;
+        // max = Math.max(max, area);
+        // }
+        // better solution: two pointers
+        int left = 0;
+        int right = height.length - 1;
+        int max = 0;
+        while (left < right) {
             int w = right - left;
             int h = Math.min(height[left], height[right]);
             int area = h * w;
             max = Math.max(max, area);
-            if(height[left] < height[right]) left++;//move the shorter line
-            else if(height[left] > height[right]) right--;//move the shorter line
+            if (height[left] < height[right])
+                left++;// move the shorter line
+            else if (height[left] > height[right])
+                right--;// move the shorter line
             else {
-            left++;
-            right--;
+                left++;
+                right--;
             }
-            }
-            return max;
         }
+        return max;
+    }
+
+    public boolean checkPalindromeFormation(String a, String b) {
+        int index = 0;
+        while (index < a.length()) {
+            // System.out.println("index: " + index);
+            String aPrefix = a.substring(0, index);
+            String aSuffix = a.substring(index, a.length());
+            String bPrefix = b.substring(0, index);
+            String bSuffix = b.substring(index, b.length());
+            // System.out.println("aPrefix: " + aPrefix + " aSuffix: " + aSuffix);
+            String A = aPrefix + bSuffix;
+            String B = bPrefix + aSuffix;
+            System.out.println("A: " + A + " B: " + B);
+            // Below step will cost a lot of time, the fact is that we don't need to reverse
+            String a_RevString = new StringBuilder(A).reverse().toString();
+            String b_RevString = new StringBuilder(B).reverse().toString();
+            if (A.equals(a_RevString) || B.equals(b_RevString)) {
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
+    // A better solution：
+    // public boolean checkPalindromeFormation(String a, String b) {
+    // return check(a, b) || check(b, a);
+    // }
+
+    public boolean isPalindrome(String s, int i, int j) {
+        while (i < j && s.charAt(i) == s.charAt(j)) {
+            ++i;
+            --j;
+        }
+        return i >= j;
+    }
+
+    boolean check(String a, String b) {
+        int i = 0, j = a.length() - 1;
+        while (i < j && a.charAt(i) == b.charAt(j)) {
+            ++i;
+            --j;
+        }
+        return isPalindrome(a, i, j) || isPalindrome(b, i, j);
+    }
+
+    /**
+     * https://leetcode.com/problems/climbing-stairs/
+     * You are climbing a staircase. It takes n steps to reach the top.
+     * Each time you can either climb 1 or 2 steps. In how many distinct ways can
+     * you climb to the top?
+     * 
+     * @param n the number of stairs
+     * @return the number of distinct ways to climb to the top
+     */
+    public int climbStairs(int n) {
+
+        // int[] dp = new int[n + 1];
+        // dp[0] = 1;
+        // dp[1] = 1;
+        // for (int i = 2; i <= n; i++) {
+        // dp[i] = dp[i - 1] + dp[i - 2];
+        // }
+        // return dp[n];
+
+        // better solution: Fibonacci number
+        if (n == 1)
+            return 1;
+        // nomatter how many stairs, the first step is always 1 or 2 steps
+        int first = 1;
+        int second = 2;
+        int third = 0;
+        for (int i = 3; i <= n; i++) {
+            // the next step is the sum of the previous two steps(n-1) or (n-2), so sum them
+            third = first + second;
+            first = second;
+            second = third;
+
+        }
+        return second;
+    }
+
 }
 
 /* This class is for LeetCode test */
@@ -588,8 +722,8 @@ public class LeetCode {
         long startTime = System.nanoTime();
         // new Solution().myAtoi("-");
 
-        System.out
-                .println("Result: " + new Solution().maxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }));
+        System.out.println("Result: " +
+                new Solution().climbStairs(3));
         long TotalTime = System.nanoTime() - startTime;
         // print total time
         System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");

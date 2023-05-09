@@ -5,6 +5,7 @@ import java.util.*;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import MyTools.*;
 
 public class NowCoder {
     public static void main(String[] args) throws ScriptException {
@@ -18,7 +19,7 @@ public class NowCoder {
         // ================================================================
         long TotalTime = System.nanoTime() - startTime;
         // print total time
-        System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
+        Tools.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
     }
 }
 
@@ -27,8 +28,8 @@ class Solution {
      * https://www.nowcoder.com/practice/20ef0972485e41019e39543e8e895b7f?tpId=117&&tqId=37756&&companyId=239&rp=1&ru=/company/home/code/239&qru=/ta/job-code-high/question-ranking
      */
     public void twoSum() {
-        System.out.println(Arrays.toString(twoSum(new int[] { 3, 2, 4 }, 6)));// [2,3]
-        System.out.println(Arrays.toString(twoSum(new int[] { 20, 70, 110, 150 }, 90)));// [1,2]
+        Tools.println(Arrays.toString(twoSum(new int[] { 3, 2, 4 }, 6)));// [2,3]
+        Tools.println(Arrays.toString(twoSum(new int[] { 20, 70, 110, 150 }, 90)));// [1,2]
     }
 
     /**
@@ -73,9 +74,9 @@ class Solution {
      * https://www.nowcoder.com/practice/459bd355da1549fa8a49e350bf3df484?tpId=117&companyId=239&rp=1&ru=%2Fcompany%2Fhome%2Fcode%2F239&qru=%2Fta%2Fjob-code-high%2Fquestion-ranking&difficulty=&judgeStatus=&tags=&title=&sourceUrl=&gioEnter=menu
      */
     public void FindGreatestSumOfSubArray() {
-        System.out.println(FindGreatestSumOfSubArray(new int[] { 6, -3, -2, 7, -15, 1, 2, 2 }));// 8
-        System.out.println(FindGreatestSumOfSubArray(new int[] { 1, -2, 3, 10, -4, 7, 2, -5 }));// 18
-        System.out.println(FindGreatestSumOfSubArray(new int[] { -10 }));// -10
+        Tools.println(FindGreatestSumOfSubArray(new int[] { 6, -3, -2, 7, -15, 1, 2, 2 }));// 8
+        Tools.println(FindGreatestSumOfSubArray(new int[] { 1, -2, 3, 10, -4, 7, 2, -5 }));// 18
+        Tools.println(FindGreatestSumOfSubArray(new int[] { -10 }));// -10
     }
 
     private int FindGreatestSumOfSubArray(int[] array) {
@@ -108,7 +109,7 @@ class Solution {
      * https://www.nowcoder.com/practice/7960b5038a2142a18e27e4c733855dac?tpId=37&tqId=21244&rp=1&ru=/exam/oj/ta&qru=/exam/oj/ta&sourceUrl=%2Fexam%2Foj%2Fta%3FtpId%3D37&difficulty=undefined&judgeStatus=undefined&tags=&title=
      */
     public void SimplePassword() {
-        System.out.println(SimplePassword("YUANzhi1987"));// zvbo9441987
+        Tools.println(SimplePassword("YUANzhi1987"));// zvbo9441987
     }
 
     private String SimplePassword(String str) {
@@ -162,7 +163,7 @@ class Solution {
                     temp = '9';
                 }
             }
-            // System.out.println(temp);
+            // Tools.println(temp);
             result += temp;
         }
         return result;
@@ -172,14 +173,14 @@ class Solution {
      * https://www.nowcoder.com/practice/fe298c55694f4ed39e256170ff2c205f?tpId=37&rp=1&ru=%2Fexam%2Foj%2Fta&qru=%2Fexam%2Foj%2Fta&sourceUrl=%2Fexam%2Foj%2Fta%3FtpId%3D37&difficulty=&judgeStatus=&tags=&title=&gioEnter=menu
      */
     public void BottleChange() {
-        System.out.println(BottleChange(10));// 5
-        System.out.println(BottleChange(81));// 40
-        System.out.println(BottleChange(100));// 50
+        Tools.println(BottleChange(10));// 5
+        Tools.println(BottleChange(81));// 40
+        Tools.println(BottleChange(100));// 50
     }
 
     private int BottleChange(int startBottle) {
         int totalDrink = 0;
-        // System.out.println("input: " + start);
+        // Tools.println("input: " + start);
         int emptyLeft = startBottle;
         totalDrink = 0;
         int counter = 0;
@@ -195,7 +196,7 @@ class Solution {
             emptyLeft -= times * 3; // 换完之后剩下的
             emptyLeft += times;// 喝完换到的之后剩下的
             totalDrink += times;
-            // System.out.println("totalDrink: " + totalDrink + ", left: " + emptyLeft);
+            // Tools.println("totalDrink: " + totalDrink + ", left: " + emptyLeft);
             if (emptyLeft == 2) {
                 emptyLeft += 1; // 向老板借一个空瓶
             }
@@ -211,9 +212,9 @@ class Solution {
      * https://www.nowcoder.com/practice/5190a1db6f4f4ddb92fd9c365c944584?tpId=37&rp=1&ru=%2Fexam%2Foj%2Fta&qru=%2Fexam%2Foj%2Fta&sourceUrl=%2Fexam%2Foj%2Fta%3FjudgeStatus%3D3%26page%3D1%26pageSize%3D50%26search%3D%26tpId%3D37%26type%3D37&difficulty=&judgeStatus=3&tags=&title=&gioEnter=menu
      */
     public void SpecialStringSort() {
-        System.out.println(SpecialStringSort("A Famous Saying: Much Ado About Nothing (2012/8)."));// A aaAAbc dFgghh:
-                                                                                                   // iimM nNn oooos
-                                                                                                   // Sttuuuy (2012/8).
+        Tools.println(SpecialStringSort("A Famous Saying: Much Ado About Nothing (2012/8)."));// A aaAAbc dFgghh:
+                                                                                              // iimM nNn oooos
+                                                                                              // Sttuuuy (2012/8).
     }
 
     private String SpecialStringSort(String str) {
@@ -250,28 +251,28 @@ class Solution {
     public void Regrex() {
         // String str = "abc";
         // String pattern = "a.*";
-        // System.out.println(str.matches(pattern));
-        System.out.println(Regrex("te?t*.*", "text12.xls"));// true
-        // System.out.println(Regrex("te?t*.*", "text.xls"));// true
-        // System.out.println(Regrex("te?t*.*", "txt12.xls"));// false
+        // Tools.println(str.matches(pattern));
+        Tools.println(Regrex("te?t*.*", "text12.xls"));// true
+        // Tools.println(Regrex("te?t*.*", "text.xls"));// true
+        // Tools.println(Regrex("te?t*.*", "txt12.xls"));// false
     }
 
     private boolean Regrex(String target, String input) {
         target = target.toLowerCase();// 忽略大小写
         input = input.toLowerCase();// 忽略大小写
         String regex = target.replaceAll("\\*{2,}", "\\*");// 将连续的*替换为一个*
-        // System.out.println(regex);
+        // Tools.println(regex);
         regex = regex.replaceAll("\\?", "[0-9a-z]{1}");// replace ? with [0-9a-z]{1}, [0-9a-z]{1} means only match one
                                                        // char
-        // System.out.println(regex);
+        // Tools.println(regex);
         regex = regex.replaceAll("\\*", "[0-9a-z]{0,}");// replace * with [0-9a-z]{0,}, [0-9a-z]{0,} means match 0 or
                                                         // more char
-        // System.out.println(regex);
+        // Tools.println(regex);
         return input.matches(regex);// match the whole string
     }
 
     public void StringToOperation() throws ScriptException {
-        System.out.println(HardCodeStringToOperation("1+4"));// 15
+        Tools.println(HardCodeStringToOperation("1+4"));// 15
 
     }
 
@@ -322,14 +323,14 @@ class Solution {
      */
     public void Dichotomy(int[] list, int target, Boolean useDichotomy) {
 
-        // System.out.println("Before Sort: " + Arrays.toString(list));
+        // Tools.println("Before Sort: " + Arrays.toString(list));
         // convert int to Integer
         // Integer[] list2 = new Integer[list.length];
         // for (int i = 0; i < list.length; i++) {
         // list2[i] = list[i];
         // }
         // Arrays.sort(list2);
-        // System.out.println("After Sort: " + Arrays.toString(list2));
+        // Tools.println("After Sort: " + Arrays.toString(list2));
         Arrays.sort(list);
         int[] list2 = list;
         if (useDichotomy) {
@@ -337,10 +338,10 @@ class Solution {
             int left = 0, right = list2.length - 1, mid;
             while (left <= right) {// notice: <= not < because we need to check the last item
                 mid = (left + right) / 2;// find the middle index
-                // System.out.println("left: " + left + ", right: " + right + ", mid: " + mid +
+                // Tools.println("left: " + left + ", right: " + right + ", mid: " + mid +
                 // ", mid value: " + list2[mid]);
                 if (list2[mid] == target) {// if the middle item is the target, return
-                    System.out.println("Find the target: " + target + " at index: " + mid);
+                    Tools.println("Find the target: " + target + " at index: " + mid);
                     return;
                 }
                 if (list2[mid] > target) {// if the middle item is bigger than target, search the left part
@@ -349,15 +350,15 @@ class Solution {
                     left = mid + 1;// if the middle item is smaller than target, search the right part
                 }
             }
-            System.out.println("Not find the target: " + target);
+            Tools.println("Not find the target: " + target);
         } else { // traditional way:
             for (int i = 0; i < list2.length; i++) {
                 if (list2[i] == target) {
-                    System.out.println("Find the target: " + target + " at index: " + i);
+                    Tools.println("Find the target: " + target + " at index: " + i);
                     return;
                 }
             }
-            System.out.println("Not find the target: " + target);
+            Tools.println("Not find the target: " + target);
         }
 
     }
@@ -385,10 +386,35 @@ class Solution {
                 }
             }
         });
-        // System.out.println(sortList.toString());
+        // Tools.println(sortList.toString());
         for (Map.Entry<Character, Integer> entry : sortList) {
             System.out.print(entry.getKey());
         }
     }
 
+    /**
+     * https://www.nowcoder.com/practice/42852fd7045c442192fa89404ab42e92?tpId=137&tqId=33895&ru=/exam/oj
+     * Check("helllo");
+     * Check("helloo");
+     * Check("yyybeettxjjjpppddsrxxxkkkyyyooowwwwwkyyxxppplllwwwiivvssnrvvvccclyydddhaaayiic");
+     *      * @param str
+     */
+    public void CheckSpell(String str) {
+        // 检查是否有三个及以上同样的字母连在一起
+        if (str.matches(".*([A-Za-z])\\1{2,}.*")) {
+            // 保留两个就行
+            while (str.matches(".*([A-Za-z])\\1{2,}.*")) {
+                str = str.replaceFirst("([A-Za-z])\\1{2,}", "$1$1");
+            }
+        }
+        // 检查是否两对一样的字母（AABB）连在一起, \\1{1,}表示第一个括号里的内容重复一次或多次
+        if (str.matches(".*([A-Za-z])\\1{1,}([A-Za-z])\\2{1,}.*")) {
+            // 保留两个就行
+            while (str.matches(".*([A-Za-z])\\1{1,}([A-Za-z])\\2{1,}.*")) {
+                str = str.replaceFirst("([A-Za-z])\\1{1,}([A-Za-z])\\2{1,}", "$1$1$2");
+            }
+
+        }
+        System.out.println(str);
+    }
 }

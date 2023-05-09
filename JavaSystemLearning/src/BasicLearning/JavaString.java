@@ -14,18 +14,19 @@ public class JavaString extends Variables {
         // stringConcat();
         // stringTrim();
         // stringIndexOf();
-        //StringtoCharArray();
+        // StringtoCharArray();
         // stringSubstring();
         // stringReplace();
         // stringSplit();
-         stringInvert();
-         stringInvertWithBuilder();
+        // stringInvert();
+        // stringInvertWithBuilder();
         // JavaArrays.JavaArraysTest();
         // stringSplitWithRegex();
         // ContainsAnyOutOfCharList("Hello ButterFly", "[^BF]");
-         stringMatch();
+        // stringMatch();
         // String containStr = "[ABCD]";
         // System.out.println(ContainsAnyOutOfCharList(myString, containStr));
+
         System.out.println("--------------------");
     }
 
@@ -85,6 +86,7 @@ public class JavaString extends Variables {
         System.out.println(myString.substring(0, 5));
     }
 
+    // https://www.vogella.com/tutorials/JavaRegularExpressions/article.html
     public void stringReplace() {
         System.out.println(myString.replace("l", "d"));
         // System.out.println(myString.replaceFirst("l", "*"));
@@ -111,7 +113,6 @@ public class JavaString extends Variables {
         }
         String test = "123,456,789";
         System.out.println(Arrays.toString("Hello12Wor34ld555".split("[0-9]+")));// '+' means 1 or more
-
     }
 
     /**
