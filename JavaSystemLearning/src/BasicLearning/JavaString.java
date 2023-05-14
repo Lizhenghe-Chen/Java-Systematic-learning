@@ -5,8 +5,14 @@ import java.util.Arrays;
 public class JavaString extends Variables {
     private String myString = "  Hello World! ";
 
-    public JavaString() {
+    public static void main(String[] args) {
         System.out.println("--------------------");
+        String[] temp = "asdasd    asdasfa ".split("");
+        for (String string : temp) {
+
+            System.out.print(string);
+            System.out.println(string.matches(" "));
+        }
         // simpleString();
         // stringLength();
         // stringUpperCase();
@@ -143,6 +149,21 @@ public class JavaString extends Variables {
         System.out.println(myString.matches("Hello World"));
         System.out.println(myString.matches("(.*)World(.*)"));
         System.out.println(myString.matches("(.*)Hello(.*)"));// " Hello World! "
+    }
+
+    public String RemoveDulicateChar(String str) {
+        String[] strArray = str.split("");
+        String result = "";
+        for (String string : strArray) {
+            if (!result.contains(string)) {
+                result += string;
+            }
+        }
+        // if string is empty, return null
+        if (result.length() == 0) {
+            return null;
+        }
+        return result;
     }
 
 }

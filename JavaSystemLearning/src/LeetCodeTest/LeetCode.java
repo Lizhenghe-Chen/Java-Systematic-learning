@@ -3,6 +3,8 @@ package LeetCodeTest;
 import java.util.*;
 import javax.naming.spi.DirStateFactory.Result;
 
+import MyTools.Tools;
+
 //write the interface here
 interface LeetCodeQuestions {
     public void ShiftofCoordinates(String inputString);
@@ -56,6 +58,28 @@ interface LeetCodeQuestions {
 
 //
 class Solution implements LeetCodeQuestions {
+
+    /**
+     * https://leetcode.com/problems/counting-bits/description/
+     * 
+     * @param n
+     * @return
+     */
+    public static int[] countBits(int n) {
+        int[] ans = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            // Tools.println(Integer.toBinaryString(i));
+            char[] binaryArray = Integer.toBinaryString(i).toCharArray();
+            int count = 0;
+            for (char c : binaryArray) {
+                if (c == '1') {
+                    count++;
+                }
+            }
+            ans[i] = count;
+        }
+        return ans;
+    }
 
     public void ShiftofCoordinates() {
         ShiftofCoordinates("A1;A10;");
@@ -714,6 +738,28 @@ class Solution implements LeetCodeQuestions {
         return second;
     }
 
+    public int lengthOfLongestSubstring(String s) {
+        String temp = "";
+        int count = 0;
+        int max = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j < s.length(); j++) {
+                String check = String.valueOf(s.charAt(j));
+                // Tools.println("i:" + i + " j:" + j);
+                if (!temp.contains(check)) {
+                    temp = temp.concat(check);
+                    count++;
+                } else {
+                    count = 0;
+                    temp = "";
+                    break;
+                }
+                max = Math.max(max, count);
+                // Tools.println(temp + ", " + count + ", " + max);
+            }
+        }
+        return max;
+    }
 }
 
 /* This class is for LeetCode test */
@@ -723,7 +769,7 @@ public class LeetCode {
         // new Solution().myAtoi("-");
 
         System.out.println("Result: " +
-                new Solution().climbStairs(3));
+                new Solution().lengthOfLongestSubstring("asjrgapa"));
         long TotalTime = System.nanoTime() - startTime;
         // print total time
         System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");

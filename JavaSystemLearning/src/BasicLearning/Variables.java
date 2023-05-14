@@ -1,5 +1,7 @@
 package BasicLearning;
 
+import MyTools.Tools;
+
 public class Variables extends Basic {
     /**
      * In Java, there are different types of variables, for example:
@@ -14,20 +16,22 @@ public class Variables extends Basic {
      * https://www.w3schools.com/java/java_variables.asp
      */
     public static void JavaVariables() {
-        // Java String:
-        String greeting = "Hello World";
-        System.out.println(greeting);
-        // Java int:
-        int myNum = 5;
-        System.out.println(myNum);
-        // Java float:
-        float myFloatNum = 5.9900f;
-        System.out.println(myFloatNum);
-        // Java char:
-        char myLetter = 'D';
-        System.out.println(myLetter);
-        // Java boolean:
-        boolean myBool = true;
-        System.out.println(myBool);
+        // // Java String:
+        // String greeting = "Hello World";
+        // System.out.println(greeting);
+        // // Java int:
+        // int myNum = 5;
+        // System.out.println(myNum);
+        // // Java float:
+        // float myFloatNum = 5.9900f;
+        // System.out.println(myFloatNum);
+        // // Java char:
+        // char myLetter = 'D';
+        // System.out.println(myLetter);
+        // // Java boolean:
+        // boolean myBool = true;
+        // System.out.println(myBool);
+        Tools.println(Integer.toHexString(111));;
+  
     }
 }

@@ -12,9 +12,11 @@ public class NowCoder {
         long startTime = System.nanoTime();
         // ================================================================
         // ListNode.ListNodeTest();
-        new Solution().Dichotomy(
+        new Solution().
+        Dichotomy(
                 new int[] { 2, 3, 0, 1, 5, 15, 25, 33, 22, 8, 9, 10, 66, 4, 6, 7, 8, 0 },
                 22, true);
+                Tools.println("woooow".matches(".*(\\w)\\1{2,}.*"));//\\w{3,}表示匹配2个以上的字母数字下划线
         // Recursion.Febonacci();
         // ================================================================
         long TotalTime = System.nanoTime() - startTime;
@@ -401,10 +403,10 @@ class Solution {
      */
     public void CheckSpell(String str) {
         // 检查是否有三个及以上同样的字母连在一起
-        if (str.matches(".*([A-Za-z])\\1{2,}.*")) {
+        if (str.matches(".*([A-Za-z])\\1{2,}.*")) {// \\1{2,}表示第一个括号里的内容重复两次或多次
             // 保留两个就行
             while (str.matches(".*([A-Za-z])\\1{2,}.*")) {
-                str = str.replaceFirst("([A-Za-z])\\1{2,}", "$1$1");
+                str = str.replaceFirst("([A-Za-z])\\1{2,}", "$1$1");// $1表示第一个括号里的内容
             }
         }
         // 检查是否两对一样的字母（AABB）连在一起, \\1{1,}表示第一个括号里的内容重复一次或多次

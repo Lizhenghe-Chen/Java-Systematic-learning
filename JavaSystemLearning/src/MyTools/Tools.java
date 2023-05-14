@@ -10,6 +10,15 @@ public class Tools {
         // Print(String.valueOf(globalStartTime));
     }
 
+    public static void PrintExecutionTime(String flag, long globalStartTime) {
+        long TotalTime = System.nanoTime() - globalStartTime;
+        // print total time
+        println(flag + "-> " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
+        // chang the original
+        globalStartTime = System.nanoTime();
+        // Print(String.valueOf(globalStartTime));
+    }
+
     public static void println(String str) {
         System.out.println(str);
     }
