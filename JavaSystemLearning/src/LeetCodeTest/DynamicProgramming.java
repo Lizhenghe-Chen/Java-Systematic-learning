@@ -2,7 +2,7 @@ package LeetCodeTest;
 
 import java.lang.reflect.Array;
 import java.util.*;
-import MyTools.Tools;
+import MyTools.PrintTools;
 
 public class DynamicProgramming {
     public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class DynamicProgramming {
                 if (grid[i][j] == '1') {
                     count++;
                     clearRestOfLand(grid, i, j);
-                    Tools.println(grid.toString());
+                    PrintTools.println(grid.toString());
                 }
             }
         }

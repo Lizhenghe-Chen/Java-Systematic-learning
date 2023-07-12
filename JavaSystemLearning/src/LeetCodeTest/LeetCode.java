@@ -1,9 +1,11 @@
 package LeetCodeTest;
 
+import java.math.*;
 import java.util.*;
 import javax.naming.spi.DirStateFactory.Result;
+import javax.tools.Tool;
 
-import MyTools.Tools;
+import MyTools.PrintTools;
 
 //write the interface here
 interface LeetCodeQuestions {
@@ -68,7 +70,7 @@ class Solution implements LeetCodeQuestions {
     public static int[] countBits(int n) {
         int[] ans = new int[n + 1];
         for (int i = 0; i <= n; i++) {
-            // Tools.println(Integer.toBinaryString(i));
+            // PrintTools.println(Integer.toBinaryString(i));
             char[] binaryArray = Integer.toBinaryString(i).toCharArray();
             int count = 0;
             for (char c : binaryArray) {
@@ -745,7 +747,7 @@ class Solution implements LeetCodeQuestions {
         for (int i = 0; i < s.length(); i++) {
             for (int j = i; j < s.length(); j++) {
                 String check = String.valueOf(s.charAt(j));
-                // Tools.println("i:" + i + " j:" + j);
+                // PrintTools.println("i:" + i + " j:" + j);
                 if (!temp.contains(check)) {
                     temp = temp.concat(check);
                     count++;
@@ -755,10 +757,78 @@ class Solution implements LeetCodeQuestions {
                     break;
                 }
                 max = Math.max(max, count);
-                // Tools.println(temp + ", " + count + ", " + max);
+                // PrintTools.println(temp + ", " + count + ", " + max);
             }
         }
         return max;
+    }
+
+    /**
+     * https://leetcode.com/problems/multiply-strings/solutions/17605/easiest-java-solution-with-graph-explanation/?languageTags=java
+     * 
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public String multiply(String num1, String num2) {
+        BigDecimal n1 = new BigDecimal(num1);
+        BigDecimal n2 = new BigDecimal(num2);
+        return n1.multiply(n2).toString();
+
+    }
+
+    /**
+     * https://leetcode.com/problems/restore-ip-addresses/
+     * 
+     * @param s
+     * @return
+     */
+    public List<String> restoreIpAddresses(String s) {
+        List<String> res = new ArrayList<>();
+        int len = s.length();
+        // check the length of the string
+        if (len < 4 || len > 12)
+            return res;
+        // i, j, k are the length of the first, second, third part of the IP address
+        for (int i = 1; i < 4 && i < len - 2; i++) {
+            for (int j = i + 1; j < i + 4 && j < len - 1; j++) {
+                for (int k = j + 1; k < j + 4 && k < len; k++) {
+                    // check the length of the last part of the IP address
+                    if (len - k > 3)
+                        continue;
+                    String first = s.substring(0, i);
+                    String second = s.substring(i, j);
+                    String third = s.substring(j, k);
+                    String fourth = s.substring(k, len);
+                    if (isValid(first) && isValid(second) && isValid(third) && isValid(fourth)) {
+                        res.add(first + "." + second + "." + third + "." + fourth);
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    private boolean isValid(String first) {
+        if (first.length() > 3 || first.length() == 0
+                || (first.charAt(0) == '0' && first.length() > 1)
+                || Integer.parseInt(first) > 255)
+            return false;
+        return true;
+    }
+
+    public List<List<String>> partition(String s) {
+        List<List<String>> restList = new ArrayList<List<String>>();
+       
+        
+        return restList;
+    }
+
+    public boolean isPalindrome(String s) {
+        int i = 0, j = s.length() - 1;
+        while (i < j && s.charAt(i++) == s.charAt(j--))
+            ;
+        return i >= j;
     }
 }
 
@@ -769,7 +839,7 @@ public class LeetCode {
         // new Solution().myAtoi("-");
 
         System.out.println("Result: " +
-                new Solution().lengthOfLongestSubstring("asjrgapa"));
+                new Solution().isPalindrome("a"));
         long TotalTime = System.nanoTime() - startTime;
         // print total time
         System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");

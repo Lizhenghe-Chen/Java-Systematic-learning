@@ -3,7 +3,7 @@ package BasicLearning;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import MyTools.Tools;
+import MyTools.PrintTools;
 
 /**
  * A tool class for String regex and String operation
@@ -102,18 +102,18 @@ public class JavaRegex extends JavaString {
         //     String subStringwithStart = str.substring(startIndex);
         //     int endIndex = subStringwithStart.indexOf(" ");
         //     String link = subStringwithStart.substring(0, endIndex);
-        //     Tools.println(link);
+        //     PrintTools.println(link);
         // }
         // if (str.contains("https://")) {
         //     String link = str.substring(str.indexOf("https://"),
         //             str.indexOf("https://") + str.substring(str.indexOf("https://")).indexOf(" "));
-        //     Tools.println(link);
+        //     PrintTools.println(link);
         // }
         //use regex to find the link
         Pattern pattern = Pattern.compile("(http://|https://|www.)\\S+");
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
-            Tools.println(matcher.group());
+            PrintTools.println(matcher.group());
         }
         
     }
@@ -125,13 +125,13 @@ public class JavaRegex extends JavaString {
         //     count++;
         //     index = str.indexOf(target, index) + 1;
         // }
-        // Tools.println(count);
+        // PrintTools.println(count);
         Pattern pattern = Pattern.compile(target);
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()) {
             count++;
-            Tools.println(matcher.group());
+            PrintTools.println(matcher.group());
         }
-        Tools.println(count);
+        PrintTools.println(count);
     }
 }

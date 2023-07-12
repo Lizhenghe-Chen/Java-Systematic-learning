@@ -26,8 +26,8 @@ public interface JavaCollections extends JavaIterable {
 
         // JavaListTest();
         // new JavaArrayList().JavaArrayListTest();
-        // new JavaArrays().JavaMultiDimensionalArraysTest();
-        new JavaStack().JavaStackTest();
+        new JavaArrays().JavaMultiDimensionalArraysTest();
+        // new JavaStack().JavaStackTest();
         // ======================================================================
         long TotalTime = System.nanoTime() - startTime;
         System.out.println("Total Time: " + TotalTime / 1000000 + "ms | " + TotalTime + " nanos");
@@ -56,25 +56,25 @@ public interface JavaCollections extends JavaIterable {
             // for (String i : cars) {
             // System.out.println(i);
             // }
-            //System.out.println(Arrays.toString(cars));
-            // ==== 
+            // System.out.println(Arrays.toString(cars));
+            // ====
         }
 
         public void JavaMultiDimensionalArraysTest() {
             int[][] myNumbers = { { 1, 2, 3, 4 }, { 5, 6, 7 } };
             // ==== different ways to print out multi-dimensional array:
-            for (int i = 0; i < myNumbers.length; ++i) {
-                for (int j = 0; j < myNumbers[i].length; ++j) {
-                    System.out.print(myNumbers[i][j] + ", ");
-                }
-                System.out.println();
-            }
-            for (int[] i : myNumbers) {
-                for (int j : i) {
-                    System.out.print(j + ", ");
-                }
-                System.out.println();
-            }
+            // for (int i = 0; i < myNumbers.length; ++i) {
+            //     for (int j = 0; j < myNumbers[i].length; ++j) {
+            //         System.out.print(myNumbers[i][j] + ", ");
+            //     }
+            //     System.out.println();
+            // }
+            // for (int[] i : myNumbers) {
+            //     for (int j : i) {
+            //         System.out.print(j + ", ");
+            //     }
+            //     System.out.println();
+            // }
 
             System.out.println(Arrays.deepToString(myNumbers));
         }
@@ -327,7 +327,6 @@ public interface JavaCollections extends JavaIterable {
 
             // To check if the Stack is empty, use the empty() method:
             System.out.println("empty(): " + carsStack.empty());
-            
 
             // To search for an element in the Stack, use the search() method:
             System.out.println("search(): " + carsStack.search("Volvo"));

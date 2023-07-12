@@ -18,13 +18,13 @@ public class MonoBehaviour {
         }
     }
 
-    void Update() {
+    private void Update() {
         // just like the unity update function, this function will be called every frame
         if (myNum > 50000) {
-        System.out.println("Done");
-        loop = false;
+            System.out.println("Done");
+            loop = false;
         }
-        //int a = "";
+        // int a = "";
         System.out.println(myNum++);
         // clear the console
         System.out.print("\033[H\033[2J");

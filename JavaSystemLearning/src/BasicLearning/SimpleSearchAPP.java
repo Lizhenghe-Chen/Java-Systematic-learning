@@ -3,9 +3,10 @@ package BasicLearning;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import MyTools.Tools;
+import MyTools.PrintTools;
 
 public class SimpleSearchAPP {
 
@@ -16,11 +17,12 @@ public class SimpleSearchAPP {
         String target = "constructed";
         StringBuilder content;
         content = ReadTheFile_V2("Assets/Article.txt");
-        Tools.PrintExecutionTime("ReadFile",globalStartTime);
-        Print(FindSting_Gen0(content, target).toString());
-        Tools.PrintExecutionTime("FindSting_Gen0",globalStartTime);
-        Print(FindSting_Gen1("Assets/Article.txt", target).toString());
-        Tools.PrintExecutionTime("FindSting_Gen1",globalStartTime);
+        PrintTools.PrintExecutionTime("ReadFile", globalStartTime);
+        PrintTools.println(FindSting_Gen0(content, target).toString());
+        Print("asd");
+        PrintTools.PrintExecutionTime("FindSting_Gen0", globalStartTime);
+        PrintTools.println(FindSting_Gen1("Assets/Article.txt", target).toString());
+        PrintTools.PrintExecutionTime("FindSting_Gen1", globalStartTime);
     }
 
     /**
@@ -39,7 +41,7 @@ public class SimpleSearchAPP {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        Print("The Content Length: " + contentBuilder.length());
+        PrintTools.println("The Content Length: " + contentBuilder.length());
         return contentBuilder;
     }
 
@@ -61,7 +63,7 @@ public class SimpleSearchAPP {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        Print("The Content Length: " + contentBuilder.length());
+        PrintTools.println("The Content Length: " + contentBuilder.length());
         return contentBuilder;
     }
 
@@ -95,7 +97,7 @@ public class SimpleSearchAPP {
                     index += target.length();
                 }
                 lastLineLength += line.length();
-                // Print(lastLineLength);
+                // PrintTools.println(lastLineLength);
             }
 
         } catch (IOException e) {
@@ -105,7 +107,13 @@ public class SimpleSearchAPP {
         return resultIndexList;
     }
 
+    /**
+     * @deprecated use PrintTools.println() instead
+     * @param s
+     */
+    @Deprecated
     public static void Print(String s) {
         System.out.println(s);
     }
+
 }

@@ -3,7 +3,7 @@ package NowCoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import MyTools.Tools;
+import MyTools.PrintTools;
 
 public class ListNode {
     int val;
@@ -65,8 +65,9 @@ class Mian {
         // ListNode linkedList = arrayToListNode(new int[] { 1, 2, 3, 4, 5, 6, 7 });
         // linkedList.toString(true);
         // System.out.println(linkedList.next.next.val);
-        addTwoNumbers(ListNode.arrayToListNode(new int[] { 2, 4, 3 }),
-                ListNode.arrayToListNode(new int[] { 5, 6, 4 })).toString(true);
+        // addTwoNumbers(ListNode.arrayToListNode(new int[] { 2, 4, 3 }),
+        //         ListNode.arrayToListNode(new int[] { 5, 6, 4 })).toString(true);
+         System.out.println(sortList(ListNode.arrayToListNode(new int[] { 4,2,1,3 })).toString(true));
     }
 
     /**
@@ -145,6 +146,34 @@ class Mian {
                 temp.next = result;
                 result = temp;
             }
+        }
+        return result;
+    }
+
+    /**
+     * https://leetcode.com/problems/sort-list/
+     * 
+     * @param head
+     * @return
+     */
+    public static ListNode sortList(ListNode head) {
+        ArrayList<Integer> list = new ArrayList<>();
+        while (head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        if (list.size() <= 1) {
+            return head;
+        }
+        // sort descending
+        list.sort((a, b) -> b - a);
+        // System.out.println(list.toString());
+        // assign the sorted list to ListNode
+        ListNode result = new ListNode(list.get(0));
+        ListNode temp = result;
+        for (int i = 1; i < list.size(); i++) {
+            temp.next = new ListNode(list.get(i));
+            temp = temp.next;
         }
         return result;
     }

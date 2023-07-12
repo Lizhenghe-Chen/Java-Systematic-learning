@@ -1,0 +1,228 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "BasicLearning.Main",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "Functions",
+            "request": "launch",
+            "mainClass": "JavaLambda.Functions",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "TCP_Client2",
+            "request": "launch",
+            "mainClass": "JavaNet.TCP_Client2",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "TCP_Client_copy",
+            "request": "launch",
+            "mainClass": "JavaNet.TCP_Client_copy",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "TCP_Server",
+            "request": "launch",
+            "mainClass": "JavaNet.TCP_Server",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "TCP_Client",
+            "request": "launch",
+            "mainClass": "JavaNet.TCP_Client",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "LeetCode",
+            "request": "launch",
+            "mainClass": "LeetCodeTest.LeetCode",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Private.Test",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "NowCoder.Solution",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "ThreadTest",
+            "request": "launch",
+            "mainClass": "Private.ThreadTest",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "ThreadLearn",
+            "request": "launch",
+            "mainClass": "JavaThread.ThreadLearn",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "Exam",
+            "request": "launch",
+            "mainClass": "Private.Exam",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "InstanceCopy",
+            "request": "launch",
+            "mainClass": "JavaObject.InstanceCopy",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "Exam",
+            "request": "launch",
+            "mainClass": "Exam",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "Mian",
+            "request": "launch",
+            "mainClass": "NowCoder.Mian",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "type": "java",
+            "name": "TaskMixing",
+            "request": "launch",
+            "mainClass": "Private.TaskMixing",
+            "projectName": "JavaSystematicLearning_b9d2e894"
+        },
+        {
+            "name": "C/C++: gcc.exe build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc.exe build active file"
+        },
+        {
+            "name": "C/C++: g++.exe build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "C:\\msys64\\mingw64\\bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++.exe build active file"
+        },
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/path/to/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
+        },
+        {
+            "name": "C/C++: cpp.exe build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: cpp.exe build active file"
+        }
+    ],
+    "version": "2.0.0"
+}

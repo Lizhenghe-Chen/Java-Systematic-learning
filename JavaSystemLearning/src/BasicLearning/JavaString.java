@@ -7,7 +7,7 @@ public class JavaString extends Variables {
 
     public static void main(String[] args) {
         System.out.println("--------------------");
-        String[] temp = "asdasd    asdasfa ".split("");
+        String[] temp = "asdasd    asdasfa ".split("\\s+");
         for (String string : temp) {
 
             System.out.print(string);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import MyTools.Tools;
+import MyTools.PrintTools;
 
 interface SortType {
     public void SelectionSort(int[] arr);
@@ -31,27 +31,27 @@ public class SortLearn {
         long globalStartTime = System.nanoTime();
         int[] tempTestArray = Arrays.copyOf(arr, arr.length);
         // set the tempTestArray to the original array
-        Tools.println(Arrays.toString(arr));
+        PrintTools.println(Arrays.toString(arr));
         SortAlgorithums sort = new SortAlgorithums();
         // // ----------------------------------------
         // sort.BubbleSort(tempTestArray);
-        // Tools.println(Arrays.toString(tempTestArray));
-        // Tools.PrintExecutionTime(globalStartTime);
+        // PrintTools.println(Arrays.toString(tempTestArray));
+        // PrintTools.PrintExecutionTime(globalStartTime);
 
         // tempTestArray = Arrays.copyOf(arr, arr.length);
         // sort.BubbleSort(tempTestArray);
-        // Tools.println(Arrays.toString(tempTestArray));
-        // Tools.PrintExecutionTime(globalStartTime);
+        // PrintTools.println(Arrays.toString(tempTestArray));
+        // PrintTools.PrintExecutionTime(globalStartTime);
 
         // tempTestArray = Arrays.copyOf(arr, arr.length);
         // sort.InsertionSort(tempTestArray);
-        // Tools.println(Arrays.toString(tempTestArray));
-        // Tools.PrintExecutionTime(globalStartTime);
+        // PrintTools.println(Arrays.toString(tempTestArray));
+        // PrintTools.PrintExecutionTime(globalStartTime);
 
         tempTestArray = Arrays.copyOf(arr, arr.length);
         sort.MergeSort(tempTestArray, 0, tempTestArray.length - 1);
-        Tools.println(Arrays.toString(tempTestArray));
-        Tools.PrintExecutionTime(globalStartTime);
+        PrintTools.println(Arrays.toString(tempTestArray));
+        PrintTools.PrintExecutionTime(globalStartTime);
         // ----------------------------------------
     }
 }
@@ -60,7 +60,7 @@ class SortAlgorithums implements SortType {
     /**
      * Bubble Sort, given an array, compare the former element with the latter one,
      * if the former element is bigger than the latter one, swap them.
-     * 冒泡排序的核心思想是
+     * 冒泡排序的核心思想是 每次遍历都把最大的元素放到最后面
      * Time Complexity: O(n^2)
      * Space Complexity: O(1)
      * 
@@ -147,11 +147,10 @@ class SortAlgorithums implements SortType {
                 j--;// move the index to the left
             }
             arr[j + 1] = temp;// insert the current element to the right position
-            // Tools.println(Arrays.toString(arr));
+            // PrintTools.println(Arrays.toString(arr));
         }
     }
 
-    @Override
     public void MergeSort(int[] arr, int start, int end) {
         if (start >= end) {// if the array has only one element, return
             return;
@@ -192,7 +191,7 @@ class SortAlgorithums implements SortType {
         for (int i = start; i <= end; i++) {
             arr[i] = temp.get(i - start);
         }
-        // Tools.println(temp.toString());
+        // PrintTools.println(temp.toString());
     }
 
     @Override
